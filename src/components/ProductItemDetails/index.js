@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import {Component} from 'react'
 import {Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
@@ -165,10 +166,7 @@ class ProductItemDetails extends Component {
                     onClick={this.onDecrementQuantity}
                     data-testid="minus"
                   >
-                    <BsDashSquare
-                      className="quantity-controller-icon"
-                      aria-label="close"
-                    />
+                    <BsDashSquare className="quantity-controller-icon" />
                   </button>
                   <p className="quantity">{quantity}</p>
                   <button
@@ -177,10 +175,7 @@ class ProductItemDetails extends Component {
                     onClick={this.onIncrementQuantity}
                     data-testid="plus"
                   >
-                    <BsPlusSquare
-                      aria-label="close"
-                      className="quantity-controller-icon"
-                    />
+                    <BsPlusSquare className="quantity-controller-icon" />
                   </button>
                 </div>
                 <button

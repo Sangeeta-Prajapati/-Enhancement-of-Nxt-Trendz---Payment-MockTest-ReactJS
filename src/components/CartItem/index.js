@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import {BsPlusSquare, BsDashSquare} from 'react-icons/bs'
 import {AiFillCloseCircle} from 'react-icons/ai'
 
@@ -15,16 +16,19 @@ const CartItem = props => (
       } = value
       const {cartItemDetails} = props
       const {id, title, brand, quantity, price, imageUrl} = cartItemDetails
-      const onRemoveCartItem = () => {
-        removeCartItem(id)
-      }
+
       // TODO: Update the functionality to increment and decrement quantity of the cart item
+
+      const onClickDecrement = () => {
+        decrementCartItemQuantity(id)
+      }
+
       const onClickIncrement = () => {
         incrementCartItemQuantity(id)
       }
 
-      const onClickDecrement = () => {
-        decrementCartItemQuantity(id)
+      const onRemoveCartItem = () => {
+        removeCartItem(id)
       }
 
       const totalPrice = price * quantity
@@ -44,20 +48,18 @@ const CartItem = props => (
                 data-testid="minus"
                 onClick={onClickDecrement}
               >
-                <BsDashSquare color="#52606D" size={12} aria-label="close" />
+                <BsDashSquare color="#52606D" size={12} />
               </button>
               <p className="cart-quantity">{quantity}</p>
-
               <button
                 type="button"
                 className="quantity-controller-button"
                 data-testid="plus"
                 onClick={onClickIncrement}
               >
-                <BsPlusSquare color="#52606D" size={12} aria-label="close" />
+                <BsPlusSquare color="#52606D" size={12} />
               </button>
             </div>
-
             <div className="total-price-remove-container">
               <p className="cart-total-price">Rs {totalPrice}/-</p>
               <button
@@ -69,14 +71,13 @@ const CartItem = props => (
               </button>
             </div>
           </div>
-
           <button
             className="delete-button"
             type="button"
             onClick={onRemoveCartItem}
             data-testid="remove"
           >
-            <AiFillCloseCircle color="#616E7C" size={20} aria-label="close" />
+            <AiFillCloseCircle color="#616E7C" size={20} />
           </button>
         </li>
       )

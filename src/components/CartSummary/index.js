@@ -1,5 +1,5 @@
+// Write your code here
 import CartContext from '../../context/CartContext'
-
 import './index.css'
 
 const CartSummary = () => (
@@ -10,21 +10,17 @@ const CartSummary = () => (
       cartList.forEach(eachCartItem => {
         total += eachCartItem.price * eachCartItem.quantity
       })
+
       return (
         <>
-          <div className="cart-summary-container">
-            <h1 className="order-total-value">
-              <span className="order-total-label">Order Total:</span>
-              Rs {total}/-
+          <div>
+            <h1>
+              <span>Order Total:</span> Rs {total} /-
             </h1>
-            <p className="total-items">{cartList.length} Items in cart</p>
-            <button className="checkout-button d-sm-none" type="button">
-              Checkout
-            </button>
+            <p>{cartList.length} Items in cart</p>
+            <button type="button">Checkout</button>
           </div>
-          <button className="checkout-button d-lg-none" type="button">
-            Checkout
-          </button>
+          <button type="button">Checkout</button>
         </>
       )
     }}
